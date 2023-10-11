@@ -463,30 +463,30 @@
         </div>
         <div class="footer-text-input-container">
           <p class="footer-link-paragraph">Subscribe</p>
-          <div class="footer-input-container">
-            <input
-              type="email"
-              name="email"
-              placeholder="E-mail"
-              class="footer-input-email"
-            />
+          <form class="footer-form">
+            <label class="footer-form-label"
+              ><input
+                type="email"
+                name="email"
+                placeholder="E-mail"
+                class="footer-input-email"
+            /></label>
             <button type="submit" class="footer-subscribe-btn">
               Subscribe
               <svg class="footer-subscribe-btn-icon" width="24" height="24">
                 <use href="./images/icons.svg#icon-telegram"></use>
               </svg>
             </button>
-          </div>
+          </form>
         </div>
       </div>
     </footer>
     <div class="modal-backdrop">
       <div class="modal">
         <button type="button" class="modal-close-btn">
-          <span class="close-ellipse"
-            ><svg class="modal-close-icon" width="8" height="8">
-              <use href="./images/icons.svg#icon-close-button"></use></svg
-          ></span>
+          <svg class="modal-close-icon" width="8" height="8">
+            <use href="./images/icons.svg#icon-close-button"></use>
+          </svg>
         </button>
         <p class="modal-title">Leave your contacts and we will call you back</p>
         <form class="modal-form">
@@ -533,10 +533,10 @@
             </div>
           </div>
           <div class="modal-form-area-field">
-            <label for="form-comment" class="modal-form-label">Comment</label>
+            <label for="user-comment" class="modal-form-label">Comment</label>
             <textarea
-              name="form-comment"
-              id="form-comment"
+              name="user-comment"
+              id="user-comment"
               class="modal-form-textarea"
               placeholder="Text input"
             ></textarea>
@@ -544,13 +544,14 @@
           <div class="modal-form-checkbox-field">
             <input
               type="checkbox"
-              name="Privacy Policy"
-              id="Privacy Policy"
+              name="user-privacy"
+              id="user-privacy"
               class="modal-input-checkbox visually-hidden"
+              value="true"
             />
-            <label for="Privacy Policy" class="modal-form-checkbox-label"
+            <label for="user-privacy" class="modal-form-checkbox-label"
               ><span class="modal-form-checkbox"
-                ><svg class="checkbox-icon">
+                ><svg class="checkbox-icon" width="10" height="8">
                   <use href="./images/icons.svg#icon-checkbox"></use></svg
               ></span>
               I accept the terms and conditions of the

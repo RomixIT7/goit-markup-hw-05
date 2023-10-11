@@ -469,13 +469,12 @@ address {
 }
 
 .footer-link-paragraph {
-  color: var(--WHITE, #fff);
+  color: #fff;
   font-size: 16px;
   font-weight: 500;
   line-height: 1.5;
   letter-spacing: 0.02em;
   margin-bottom: 16px;
-  display: inline-block;
 }
 
 .footer-icons-list {
@@ -514,10 +513,8 @@ address {
   margin-left: 80px;
 }
 
-.footer-input-container {
+.footer-form {
   display: flex;
-  justify-content: center;
-  align-items: center;
   gap: 24px;
 }
 
@@ -534,34 +531,40 @@ input::placeholder {
   width: 264px;
   height: 40px;
   flex-shrink: 0;
-  background-color: #2e2f42;
+  background-color: transparent;
   border-radius: 4px;
   border: 1px solid #fff;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
   color: #fff;
   font-family: Roboto;
   font-size: 12px;
   font-weight: 400;
-  line-height: 2;
+  line-height: 1.5;
   letter-spacing: 0.04em;
+  padding-left: 16px;
 }
 
 .footer-subscribe-btn {
+  min-width: 165px;
+  height: 40px;
   border: none;
   border-radius: 4px;
   background-color: #4d5ae5;
-  display: inline-flex;
-  padding: 8px 24px;
+  display: flex;
   justify-content: center;
   align-items: center;
-  gap: 16px;
   color: #fff;
   text-align: center;
-  font-family: Roboto;
+  font-family: Roboto, sans-serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 1.5;
   letter-spacing: 0.04em;
+  cursor: pointer;
+}
+
+.footer-subscribe-btn-icon {
+  margin-left: 16px;
 }
 
 /* ================================================ */
@@ -594,46 +597,40 @@ input::placeholder {
   flex-shrink: 0;
   border-radius: 4px;
   background-color: #fcfcfc;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 72px 24px 24px 24px;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-close-btn {
   width: 24px;
   height: 24px;
   flex-shrink: 0;
-  border-radius: 4px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e7e9fc;
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border: none;
   background-color: transparent;
   position: absolute;
   top: 24px;
   right: 24px;
   padding: 0;
+  cursor: pointer;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.close-ellipse {
-  display: block;
-  width: 24px;
-  height: 24px;
-  flex-shrink: 0;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 50%;
-  background-color: #e7e9fc;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.close-ellipse:hover {
+.modal-close-btn:hover,
+.modal-close-btn:focus {
   background-color: #404bbf;
-}
-
-.close-ellipse:hover .modal-close-icon {
-  fill: white;
 }
 
 .modal-close-icon {
@@ -648,6 +645,11 @@ input::placeholder {
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.modal-close-btn:hover .modal-close-icon,
+.modal-close-btn:focus .modal-close-icon {
+  fill: white;
+}
+
 .modal-title {
   width: 100%;
   color: #2e2f42;
@@ -656,7 +658,7 @@ input::placeholder {
   font-weight: 500;
   line-height: 1.5;
   letter-spacing: 0.02em;
-  padding-bottom: 16px;
+  margin-bottom: 16px;
 }
 
 .modal-form-field {
@@ -666,7 +668,7 @@ input::placeholder {
 .modal-form-label {
   color: #8e8f99;
   font-size: 12px;
-  line-height: 1.16;
+  line-height: 1.17;
   letter-spacing: 0.04em;
   display: block;
   margin-bottom: 4px;
@@ -715,12 +717,18 @@ input::placeholder {
   border-radius: 4px;
   border: 1px solid rgba(46, 47, 66, 0.4);
   background-color: transparent;
-  padding-top: 8px;
-  padding-left: 16px;
+  padding: 8px 16px;
   outline: transparent;
   transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   resize: none;
   font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+  color: rgba(46, 47, 66, 0.4);
+}
+
+.modal-form-textarea:focus {
+  border-color: #4d5ae5;
 }
 
 .modal-form-textarea::placeholder {
@@ -742,10 +750,13 @@ input::placeholder {
   border: 1px solid rgba(46, 47, 66, 0.4);
   border-radius: 2px;
   margin-right: 8px;
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
   fill: transparent;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-input-checkbox:checked
@@ -759,7 +770,7 @@ input::placeholder {
 .modal-form-checkbox-label {
   color: #8e8f99;
   font-size: 12px;
-  line-height: 1.16;
+  line-height: 1.17;
   letter-spacing: 0.04em;
   display: flex;
   width: 360px;
@@ -772,10 +783,11 @@ input::placeholder {
 }
 
 .modal-form-send-btn {
+  display: block;
   padding: 16px 32px;
   color: #fff;
   text-align: center;
-  font-family: Roboto;
+  font-family: Roboto, sans-serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 1.5;
@@ -784,9 +796,11 @@ input::placeholder {
   background-color: #4d5ae5;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
   border: none;
-  width: 169px;
+  min-width: 169px;
   height: 56px;
-  margin-left: 95px;
+  margin: 0 auto;
+  cursor: pointer;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ================================================ */
